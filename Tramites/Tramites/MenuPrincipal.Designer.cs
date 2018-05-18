@@ -61,7 +61,7 @@ namespace Tramites
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Tramites.Properties.Resources.icons8_test_parcial_aprobado_642;
+            this.button1.BackgroundImage = global::Tramites.Properties.Resources.icons8_test_parcial_aprobado_96;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
@@ -70,10 +70,10 @@ namespace Tramites
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(249, 168);
+            this.button1.Location = new System.Drawing.Point(262, 173);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 141);
+            this.button1.Size = new System.Drawing.Size(195, 130);
             this.button1.TabIndex = 2;
             this.button1.Text = "Notas";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

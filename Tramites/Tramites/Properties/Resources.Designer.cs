@@ -113,9 +113,39 @@ namespace Tramites.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_test_parcial_aprobado_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-test-parcial-aprobado-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_test_parcial_aprobado_642 {
             get {
                 object obj = ResourceManager.GetObject("icons8-test-parcial-aprobado-642", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_test_parcial_aprobado_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-test-parcial-aprobado-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_Checkmark_2190986 {
+            get {
+                object obj = ResourceManager.GetObject("if_Checkmark_2190986", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

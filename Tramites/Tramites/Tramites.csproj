@@ -125,6 +125,9 @@
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +190,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-test-parcial-aprobado-642.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Checkmark_2190986.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-test-parcial-aprobado-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-test-parcial-aprobado-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
