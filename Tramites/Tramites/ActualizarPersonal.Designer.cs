@@ -341,7 +341,5 @@ namespace Tramites
         private Label lblEmpleado;
         private Label lblFecha;
         private Button button1;
-
-        public FormStartPosition StartPosition { get; private set; }
     }
 }

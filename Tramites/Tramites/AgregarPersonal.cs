@@ -17,11 +17,10 @@ namespace Tramites
         {
             InitializeComponent();
             Departamentos = InterfaceMySQL.ObtenerCatalogo("Departamentos");
-            for (int i = 0; i < Departamentos.Rows.Count; i++)
-            {
-                DataRow x = Departamentos.Rows[i];
-                cbDepas.Items.Add(x["Departamento"]);
-            }
+            for (int i = 0; i < Departamentos?.Rows?.Count; i++) {
+                    DataRow x = Departamentos.Rows[i];
+                    cbDepas.Items.Add(x["Departamento"]);
+                }
         }
         public string FormatoFecha(DateTime Fecha)
         {
@@ -40,14 +39,15 @@ namespace Tramites
                 }
             }
 
-            if (txtRFC.Text == "" || txtNombre.Text == "" || txtAPaterno.Text == "" || txtAMaterno.Text == "" || cbDepas.SelectedIndex == -1 || txtPuesto.Text == "" || txtUsuario.Text =="" || txtContraseña.Text == "")
+            if (txtRFC.Text == "" || txtNombre.Text == "" || txtAPaterno.Text == "" || txtAMaterno.Text == "" || cbDepas.SelectedIndex == -1 || txtPuesto.Text == "")
             {
-                MessageBox.Show("Llene todos los campos");
+                MessageBox.Show("Llene todos los campos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }  
             else
             {
-                InterfaceMySQL.AgregarPersonal(txtRFC.Text, txtNombre.Text, txtAPaterno.Text, txtAMaterno.Text, id, txtPuesto.Text, FechaIng, txtUsuario.Text, txtContraseña.Text);
-                MessageBox.Show("El empleado se ha agregado correctamente");
+                InterfaceMySQL.AgregarPersonal(txtRFC.Text, txtNombre.Text, txtAPaterno.Text, txtAMaterno.Text, id, txtPuesto.Text, FechaIng);
+                MessageBox.Show("El empleado se ha agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
 
         }

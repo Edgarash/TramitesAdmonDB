@@ -11,20 +11,19 @@ namespace Tramites
 {
     public static partial class InterfaceMySQL
     {
-        static string Server { get { return "Localhost"; } }
+        static string Server { get { return "Servidor"; } }
         static uint Port { get { return 3306; } }
         static string DataBase { get { return "tramites"; } }
         static string Usuario
         {
             get {
-                return "root";
+                return "Administrador";
             }
         }
         static string Password
         {
             get {
-                //return "";
-                return "300896mabe";
+                return "Admin";
             }
         }
 
@@ -32,7 +31,7 @@ namespace Tramites
         static bool ConexionAbierta { get; set; }
         static int RegistrosAfectados { get; set; }
         static bool OperacionRealizada { get { return RegistrosAfectados > 0; } }
-        static bool FilasObtenidas { get { return TablaDeResultados.Rows.Count > 0; } }
+        static bool FilasObtenidas { get { return TablaDeResultados?.Rows?.Count > 0; } }
         static MySqlConnection Conexion { get; set; }
         static MySqlCommand Comando { get; set; }
         static MySqlDataReader Lector { get; set; }

@@ -71,24 +71,34 @@ namespace Tramites
         {
             dgvLista.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             dgvLista.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            if (dgvLista.Columns.GetColumnsWidth(DataGridViewElementStates.Displayed) >= dgvLista.Width)
-                dgvLista.Columns[dgvLista.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            else
-                dgvLista.Columns[dgvLista.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            if (dgvLista.ColumnCount > 0)
+                if (dgvLista.Columns.GetColumnsWidth(DataGridViewElementStates.Displayed) >= dgvLista.Width)
+                    dgvLista.Columns[dgvLista.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                else
+                    dgvLista.Columns[dgvLista.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            switch (Tipo)
-            {
+            switch (Tipo) {
                 case "Departamentos":
                     TipoCatalogo = Catalogo.Departamentos;
                     new AgregarDepartamentos().ShowDialog();
-                  
+
                     break;
                 case "Personal":
                     TipoCatalogo = Catalogo.Personal;
-                    new AgregarPersonal().ShowDialog();
+                    if ((InterfaceMySQL.ObtenerCatalogo("Departamentos")?.Rows?.Count > 0))
+                        new AgregarPersonal().ShowDialog();
+                    else {
+                        MessageBox.Show(
+                            "No se pueden agregar usuarios si no hay departamentos",
+                            "ERROR",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1
+                            );
+                    }
                     break;
                 case "Tramites":
                     TipoCatalogo = Catalogo.Tramites;
@@ -100,69 +110,76 @@ namespace Tramites
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            switch (Tipo)
-            {
-                case "Departamentos":
-                    TipoCatalogo = Catalogo.Departamentos;
-                    string Idep = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string Nombre = dgvLista[1, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string Jefe = dgvLista[2, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    DataTable Departamento;
-                    Departamento = InterfaceMySQL.ObtenerCatalogo("Departamento"); 
-                    InterfaceMySQL.MostrarDepartamento(Convert.ToInt32(Idep));
-                    new ActualizarDepartamentos(Idep,Nombre, Jefe).ShowDialog();
-                    break;
-                case "Personal":
-                    TipoCatalogo = Catalogo.Personal;
-                    string NumEmp = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string RFC = dgvLista[1, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string Nombre2 = dgvLista[2, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string APaterno = dgvLista[3, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string AMaterno= dgvLista[4, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string Departamento2 = dgvLista[5, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string Puesto = dgvLista[6, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    string FechaIngreso = dgvLista[7, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    DataTable Personal;
-                    Personal = InterfaceMySQL.ObtenerCatalogo("Personal");
-                    InterfaceMySQL.MostrarPersonal(Convert.ToInt32(NumEmp));
-                    new ActualizarPersonal(NumEmp,RFC,Nombre2, APaterno, AMaterno, Departamento2, Puesto, FechaIngreso).ShowDialog();
-                    break;
-                case "Tramites":
-                    TipoCatalogo = Catalogo.Tramites;
-                    break;
-                default:
-                    break;
+        {if (dgvLista.CurrentCell != null) {
+                switch (Tipo) {
+                    case "Departamentos":
+                        TipoCatalogo = Catalogo.Departamentos;
+                        string Idep = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Nombre = dgvLista[1, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Jefe = dgvLista[2, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        DataTable Departamento;
+                        Departamento = InterfaceMySQL.ObtenerCatalogo("Departamento");
+                        InterfaceMySQL.MostrarDepartamento(Convert.ToInt32(Idep));
+                        new ActualizarDepartamentos(Idep, Nombre, Jefe).ShowDialog();
+                        break;
+                    case "Personal":
+                        TipoCatalogo = Catalogo.Personal;
+                        string NumEmp = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string RFC = dgvLista[1, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Nombre2 = dgvLista[2, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string APaterno = dgvLista[3, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string AMaterno = dgvLista[4, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Departamento2 = dgvLista[5, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Puesto = dgvLista[6, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string FechaIngreso = dgvLista[7, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        DataTable Personal;
+                        Personal = InterfaceMySQL.ObtenerCatalogo("Personal");
+                        InterfaceMySQL.MostrarPersonal(Convert.ToInt32(NumEmp));
+                        new ActualizarPersonal(NumEmp, RFC, Nombre2, APaterno, AMaterno, Departamento2, Puesto, FechaIngreso).ShowDialog();
+                        break;
+                    case "Tramites":
+                        TipoCatalogo = Catalogo.Tramites;
+                        break;
+                    default:
+                        break;
+                }
+                dgvLista.DataSource = InterfaceMySQL.ObtenerCatalogo(Tipo);
             }
-            dgvLista.DataSource = InterfaceMySQL.ObtenerCatalogo(Tipo);
-        }
-
-        private void VerCatalogo_Load(object sender, EventArgs e)
-        {
-
+            else {
+                MessageBox.Show("Ningun dato seleccionado", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            switch (Tipo)
-            {
-                case "Departamentos":
-                    TipoCatalogo = Catalogo.Departamentos;
-                    string Idep = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    InterfaceMySQL.EliminarDepartamento(Convert.ToInt32(Idep));
-                    break;
-                case "Personal":
-                    TipoCatalogo = Catalogo.Personal;
-                    string NumEmp = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
-                    InterfaceMySQL.EliminarPersonal(Convert.ToInt32(NumEmp));
-                    break;
-                case "Tramites":
-                    TipoCatalogo = Catalogo.Tramites;
-                    break;
-                default:
-                    break;
+            if (dgvLista.CurrentCell != null) {
+                switch (Tipo) {
+                    case "Departamentos":
+                        TipoCatalogo = Catalogo.Departamentos;
+                        string Idep = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        InterfaceMySQL.EliminarDepartamento(Convert.ToInt32(Idep));
+                        break;
+                    case "Personal":
+                        TipoCatalogo = Catalogo.Personal;
+                        string NumEmp = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        InterfaceMySQL.EliminarPersonal(Convert.ToInt32(NumEmp));
+                        break;
+                    case "Tramites":
+                        TipoCatalogo = Catalogo.Tramites;
+                        break;
+                    default:
+                        break;
+                }
+                dgvLista.DataSource = InterfaceMySQL.ObtenerCatalogo(Tipo);
             }
-            dgvLista.DataSource = InterfaceMySQL.ObtenerCatalogo(Tipo);
+            else {
+                MessageBox.Show("Ningun dato seleccionado", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnActualizar.PerformClick();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Tramites
         {
             InitializeComponent();
             Personal = InterfaceMySQL.ObtenerCatalogo("Personal");
-            for (int i = 0; i < Personal.Rows.Count; i++)
+            for (int i = 0; i < Personal?.Rows?.Count; i++)
             {
                 DataRow x = Personal.Rows[i];
                 comboBox1.Items.Add(x["Nombre"]);
@@ -34,14 +34,15 @@ namespace Tramites
                     id = Convert.ToInt32(Personal.Rows[i]["ID"]);
                 }
             }
-            if (txtNombre.Text == "" || comboBox1.SelectedIndex == -1)
+            if (txtNombre.Text == "")
             {
-                MessageBox.Show("No se han completado los campos");
+                MessageBox.Show("No se han completado los campos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 InterfaceMySQL.AgregarDepa(txtNombre.Text, id);
-                MessageBox.Show("El departamento se ha agregado correctamente");
+                MessageBox.Show("El departamento se ha agregado correctamente", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
 

@@ -29,8 +29,6 @@ namespace Tramites
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -81,6 +79,7 @@ namespace Tramites
             this.dgvLista.Size = new System.Drawing.Size(662, 254);
             this.dgvLista.TabIndex = 0;
             this.dgvLista.TabStop = false;
+            this.dgvLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellDoubleClick);
             // 
             // btnAgregar
             // 
@@ -151,7 +150,6 @@ namespace Tramites
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "VerCatalogo";
             this.Text = "Catalogo";
-            this.Load += new System.EventHandler(this.VerCatalogo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);

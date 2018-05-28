@@ -27,7 +27,7 @@ namespace Tramites
 
         private void AgregarNota_Click(object sender, EventArgs e)
         {
-
+            new FormNotas().ShowDialog();
         }
     }
 }

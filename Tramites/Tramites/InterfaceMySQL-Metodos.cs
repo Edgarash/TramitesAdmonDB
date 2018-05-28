@@ -58,10 +58,10 @@ namespace Tramites
         public static bool AgregarDepa(string Nombre,int Jefe)
         {
             EjecutarProcedimientoAlmacenado("AgregarDepartamento", TipoConsulta.DevuelveInt,
-                Parametro("Nombre", Nombre), Parametro("Jefe", Jefe));
+                Parametro("Nombre", Nombre), Parametro("Jefe", Jefe == 0 ? null : (object)Jefe));
             return OperacionRealizada;
         }
-        public static bool AgregarPersonal( string RFC, string Nombre, string Ap_Paterno, string Ap_Materno, int Departamento, string Puesto, string Fecha_Ingreso, string Usuario, string Contraseña)
+        public static bool AgregarPersonal(string RFC, string Nombre, string Ap_Paterno, string Ap_Materno, int Departamento, string Puesto, string Fecha_Ingreso)
         {
             EjecutarProcedimientoAlmacenado("AgregarPersonal", TipoConsulta.DevuelveInt,
                 Parametro("RFC", RFC),
@@ -70,9 +70,7 @@ namespace Tramites
                 Parametro("AMaterno", Ap_Materno),
                 Parametro("Departamento", Departamento),
                 Parametro("Puesto", Puesto),
-                Parametro("FechaIngreso", Fecha_Ingreso),
-                 Parametro("Usuario", Usuario),
-                Parametro("Contraseña", Contraseña));
+                Parametro("FechaIngreso", Fecha_Ingreso));
 
             return OperacionRealizada;
         }
@@ -81,7 +79,7 @@ namespace Tramites
         {
             EjecutarProcedimientoAlmacenado("ActualizarDepartamento", TipoConsulta.DevuelveInt,
                 Parametro("IDepto",id),
-                Parametro("Nombre", Nombre), Parametro("Jefe", Jefe));
+                Parametro("Nombre", Nombre), Parametro("Jefe", Jefe == 0 ? null : (object)Jefe));
             return OperacionRealizada;
         }
         public static bool ActualizarPersonal(int NumEmp, string RFC, string Nombre, string APaterno, string AMaterno, int Departamento, string Puesto, string FechaIngreso)
@@ -108,6 +106,24 @@ namespace Tramites
         {
             EjecutarProcedimientoAlmacenado("EliminarPersonal", TipoConsulta.DevuelveInt,
                 Parametro("NumEmp", NumEmp));
+            return OperacionRealizada;
+        }
+
+        public static bool NotaMala(int expide, int trabajador, int noOficio)
+        {
+            EjecutarProcedimientoAlmacenado("NotasMalas", TipoConsulta.DevuelveInt,
+                Parametro("Expide", expide),
+                Parametro("Trabajador", trabajador),
+                Parametro("NoOficio", noOficio));
+            return OperacionRealizada;
+        }
+
+        public static bool NotaBuena(int expide, int trabajador, int noOficio)
+        {
+            EjecutarProcedimientoAlmacenado("NotasBuenas", TipoConsulta.DevuelveInt,
+                   Parametro("Expide", expide),
+                   Parametro("Trabajador", trabajador),
+                   Parametro("NoOficio", noOficio));
             return OperacionRealizada;
         }
     }

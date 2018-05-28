@@ -81,12 +81,13 @@ namespace Tramites
 
             if (txtRFC.Text == "" || txtNombre.Text == "" || txtAPaterno.Text == "" || txtAMaterno.Text == "" || cbDepas.SelectedIndex == -1 || txtPuesto.Text == "")
             {
-                MessageBox.Show("Llene todos los campos");
+                MessageBox.Show("Llene todos los campos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 InterfaceMySQL.ActualizarPersonal(Convert.ToInt32(lblEmpleado.Text),txtRFC.Text, txtNombre.Text, txtAPaterno.Text, txtAMaterno.Text,id, txtPuesto.Text, FechaIng);
-                MessageBox.Show("El empleado se ha actualizado correctamente");
+                MessageBox.Show("El empleado se ha actualizado correctamente", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
         }
     }

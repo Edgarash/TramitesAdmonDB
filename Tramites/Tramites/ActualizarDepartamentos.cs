@@ -42,15 +42,15 @@ namespace Tramites
                     id = Convert.ToInt32(Personal.Rows[i]["ID"]);
                 }
             }
-            if (txtNombre.Text == "" || comboBox1.SelectedIndex == -1)
+            if (txtNombre.Text == "")
             {
-                MessageBox.Show("No se han completado los campos");
+                MessageBox.Show("No se han completado los campos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 InterfaceMySQL.ActualizarDepa( Convert.ToInt32(lblNum.Text),txtNombre.Text, id);
-                MessageBox.Show("El departamento se ha actualizado correctamente");
-               
+                MessageBox.Show("El departamento se ha actualizado correctamente", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             
         }
@@ -61,12 +61,6 @@ namespace Tramites
             lblNum.Text = ID;
             txtNombre.Text = Nombre;
             comboBox1.Text = Jefe;
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

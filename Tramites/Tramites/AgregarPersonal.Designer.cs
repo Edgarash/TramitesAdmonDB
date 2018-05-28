@@ -45,10 +45,6 @@
             this.cbDepas = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,10 +71,6 @@
             this.tableLayoutPanel1.Controls.Add(this.cbDepas, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.txtContraseña, 2, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -100,13 +92,11 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Location = new System.Drawing.Point(84, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 25);
+            this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "RFC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,13 +190,11 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 45);
+            this.label2.Location = new System.Drawing.Point(68, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 25);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -268,52 +256,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 195);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 25);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Usuario";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(23, 220);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 25);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Contraseña";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsuario.Location = new System.Drawing.Point(118, 198);
-            this.txtUsuario.MaxLength = 50;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(257, 20);
-            this.txtUsuario.TabIndex = 19;
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContraseña.Location = new System.Drawing.Point(118, 223);
-            this.txtContraseña.MaxLength = 50;
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(257, 20);
-            this.txtContraseña.TabIndex = 20;
-            // 
             // AgregarPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,9 +293,5 @@
         private System.Windows.Forms.ComboBox cbDepas;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtContraseña;
     }
 }
