@@ -54,6 +54,26 @@ namespace Tramites
             }
             return Personal;
         }
+        public static DataTable MostrarNotasBuenas()
+        {
+            DataTable NotasBuenas = null;
+            EjecutarProcedimientoAlmacenado("TodasNotasBuenas", TipoConsulta.DevuelveReader);
+            if (FilasObtenidas)
+            {
+                NotasBuenas = TablaDeResultados;
+            }
+            return NotasBuenas;
+        }
+        public static DataTable MostrarNotasMalas()
+        {
+            DataTable NotasMalas = null;
+            EjecutarProcedimientoAlmacenado("TodasNotasMalas", TipoConsulta.DevuelveReader);
+            if (FilasObtenidas)
+            {
+                NotasMalas = TablaDeResultados;
+            }
+            return NotasMalas;
+        }
 
         public static bool AgregarDepa(string Nombre,int Jefe)
         {

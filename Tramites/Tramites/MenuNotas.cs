@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,24 +10,24 @@ using System.Windows.Forms;
 
 namespace Tramites
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuNotas : Form
     {
-        public MenuPrincipal()
+        public MenuNotas()
         {
             InitializeComponent();
         }
 
-        private void AbrirCatalogo(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             Hide();
-            new VerCatalogo((sender as Control).Text).ShowDialog();
+            new FormNotas().ShowDialog();
             Show();
         }
 
-        private void AgregarNota_Click(object sender, EventArgs e)
+        private void btnVer_Click(object sender, EventArgs e)
         {
             Hide();
-            new MenuNotas().ShowDialog();
+            new VerNotas().ShowDialog();
             Show();
         }
     }
