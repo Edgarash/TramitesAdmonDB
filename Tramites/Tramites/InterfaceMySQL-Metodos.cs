@@ -114,7 +114,7 @@ namespace Tramites
             EjecutarProcedimientoAlmacenado("NotasMalas", TipoConsulta.DevuelveInt,
                 Parametro("Expide", expide),
                 Parametro("Trabajador", trabajador),
-                Parametro("NoOficio", noOficio));
+                Parametro("NoOficio", noOficio == 0 ? null : (object)0));
             return OperacionRealizada;
         }
 

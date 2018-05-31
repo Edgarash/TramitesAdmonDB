@@ -128,7 +128,7 @@ namespace Tramites
                     int Expide, Trabajador, NoOficio;
                     Expide = Convert.ToInt32(tbIDExpide.Text);
                     Trabajador = Convert.ToInt32(tbIDTrabajador.Text);
-                    NoOficio = Convert.ToInt32(tbOficio.Text);
+                    NoOficio = Convert.ToInt32(string.IsNullOrWhiteSpace(tbOficio.Text) ? "0" : tbOficio.Text);
                     if (Expide != 0 && Trabajador != 0) {
                         if (rbBuena.Checked) { //Nota Buena
                             if (InterfaceMySQL.NotaBuena(Expide, Trabajador, NoOficio)) {
