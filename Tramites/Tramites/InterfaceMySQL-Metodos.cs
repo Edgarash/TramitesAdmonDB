@@ -54,6 +54,17 @@ namespace Tramites
             }
             return Personal;
         }
+        public static DataTable MostrarTramite(int NoTra)
+        {
+            DataTable Tramites = null;
+            EjecutarProcedimientoAlmacenado("MostrarTramite", TipoConsulta.DevuelveReader,
+                Parametro("NoTra", NoTra));
+            if (FilasObtenidas)
+            {
+                Tramites = TablaDeResultados;
+            }
+            return Tramites;
+        }
         public static DataTable MostrarNotasBuenas()
         {
             DataTable NotasBuenas = null;
@@ -95,6 +106,14 @@ namespace Tramites
             return OperacionRealizada;
         }
 
+        public static bool AgregarTramite(string Nombre,int local)
+        {
+            EjecutarProcedimientoAlmacenado("AgregarTramite", TipoConsulta.DevuelveInt,
+                Parametro("Nombre", Nombre),
+                Parametro("Loca", local));
+
+            return OperacionRealizada;
+        }
         public static bool ActualizarDepa(int id,string Nombre, int Jefe)
         {
             EjecutarProcedimientoAlmacenado("ActualizarDepartamento", TipoConsulta.DevuelveInt,
@@ -116,6 +135,17 @@ namespace Tramites
             return OperacionRealizada;
         }
 
+        public static bool ActualizarTramite (int Notra, string Nombre, int loca)
+        {
+            EjecutarProcedimientoAlmacenado("ActualizarTramite", TipoConsulta.DevuelveInt,
+                Parametro("Notra", Notra),
+                Parametro("Nombre", Nombre),
+                Parametro("loca", loca));
+
+            return OperacionRealizada;
+
+        }
+
         public static bool EliminarDepartamento(int NumDepto)
         {
             EjecutarProcedimientoAlmacenado("EliminarDepartamento", TipoConsulta.DevuelveInt,
@@ -126,6 +156,12 @@ namespace Tramites
         {
             EjecutarProcedimientoAlmacenado("EliminarPersonal", TipoConsulta.DevuelveInt,
                 Parametro("NumEmp", NumEmp));
+            return OperacionRealizada;
+        }
+        public static bool EliminarTramite(int NoTra)
+        {
+            EjecutarProcedimientoAlmacenado("EliminarTramite", TipoConsulta.DevuelveInt,
+                Parametro("NoTra", NoTra));
             return OperacionRealizada;
         }
 

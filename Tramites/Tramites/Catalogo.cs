@@ -102,6 +102,7 @@ namespace Tramites
                     break;
                 case "Tramites":
                     TipoCatalogo = Catalogo.Tramites;
+                    new ActualizarTramite().ShowDialog();
                     break;
                 default:
                     break;
@@ -139,6 +140,13 @@ namespace Tramites
                         break;
                     case "Tramites":
                         TipoCatalogo = Catalogo.Tramites;
+                        string NoTra = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string Nombre3 = dgvLista[1, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        string local = dgvLista[2, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        DataTable Tramites;
+                        Tramites = InterfaceMySQL.ObtenerCatalogo("Tramites");
+                        InterfaceMySQL.MostrarTramite(Convert.ToInt32(NoTra));
+                        new ActualizaTra(NoTra,Nombre3,local).ShowDialog();
                         break;
                     default:
                         break;
@@ -166,6 +174,8 @@ namespace Tramites
                         break;
                     case "Tramites":
                         TipoCatalogo = Catalogo.Tramites;
+                        string NoTra = dgvLista[0, dgvLista.CurrentCell.RowIndex].Value.ToString();
+                        InterfaceMySQL.EliminarTramite(Convert.ToInt32(NoTra));
                         break;
                     default:
                         break;

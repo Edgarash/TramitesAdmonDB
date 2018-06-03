@@ -35,6 +35,8 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -52,6 +54,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,16 +91,23 @@
     <Compile Include="AgregarPersonal.Designer.cs">
       <DependentUpon>AgregarPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActualizaTra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizaTra.Designer.cs">
+      <DependentUpon>ActualizaTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarTramite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarTramite.Designer.cs">
+      <DependentUpon>AgregarTramite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
     </Compile>
     <Compile Include="FormNotas.cs">
       <SubType>Form</SubType>
@@ -125,6 +135,18 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notabuena.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notabuena.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Notamala.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notamala.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VerNotas.cs">
@@ -132,6 +154,18 @@
     </Compile>
     <Compile Include="VerNotas.Designer.cs">
       <DependentUpon>VerNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaNotaBuena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaNotaBuena.Designer.cs">
+      <DependentUpon>VistaNotaBuena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaNotaMala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaNotaMala.Designer.cs">
+      <DependentUpon>VistaNotaMala.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ActualizarDepartamentos.resx">
       <DependentUpon>ActualizarDepartamentos.cs</DependentUpon>
@@ -145,12 +179,14 @@
     <EmbeddedResource Include="AgregarPersonal.resx">
       <DependentUpon>AgregarPersonal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ActualizaTra.resx">
+      <DependentUpon>ActualizaTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarTramite.resx">
+      <DependentUpon>AgregarTramite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNotas.resx">
       <DependentUpon>FormNotas.cs</DependentUpon>
@@ -164,6 +200,14 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notabuena.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Notabuena.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notamala.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Notamala.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -176,6 +220,12 @@
     </Compile>
     <EmbeddedResource Include="VerNotas.resx">
       <DependentUpon>VerNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaNotaBuena.resx">
+      <DependentUpon>VistaNotaBuena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaNotaMala.resx">
+      <DependentUpon>VistaNotaMala.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

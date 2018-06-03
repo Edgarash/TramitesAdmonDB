@@ -137,6 +137,7 @@
             this.btnImprimir.Size = new System.Drawing.Size(236, 44);
             this.btnImprimir.TabIndex = 2;
             this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnVer
             // 
@@ -164,7 +165,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VerNotas";
             this.Text = "VerNotas";
-            this.Load += new System.EventHandler(this.VerNotas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gbNotas.ResumeLayout(false);
             this.gbNotas.PerformLayout();

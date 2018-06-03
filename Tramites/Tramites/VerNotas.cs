@@ -47,10 +47,23 @@ namespace Tramites
 
         }
 
-        private void VerNotas_Load(object sender, EventArgs e)
+        private void btnImprimir_Click(object sender, EventArgs e)
         {
+            if (rbBuena.Checked)
+            {
+                VistaNotaBuena vista = new VistaNotaBuena();
+                string fol = dgvNotas[0, dgvNotas.CurrentCell.RowIndex].Value.ToString();
+                vista.folio = fol;
+                vista.ShowDialog();
+            }
+            else
+            {
+                VistaNotaMala vista = new VistaNotaMala();
+                string fol = dgvNotas[0, dgvNotas.CurrentCell.RowIndex].Value.ToString();
+                vista.folio = fol;
+                vista.ShowDialog();
 
-            this.reportViewer1.RefreshReport();
+            }
         }
     }
 }
